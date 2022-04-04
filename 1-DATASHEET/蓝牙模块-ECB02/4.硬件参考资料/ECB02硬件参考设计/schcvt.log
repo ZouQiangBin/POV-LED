@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------
+Symbol and Schematic Translator for PADS Logic 
+Release: PADS VX.2.4
+Install Id: 1845722
+Copyright (C) 2018 Mentor Graphics Corp.
+Translation start: 2021/12/19 17:00:16
+Input file: D:\浏览器下载文件\安装包\27-蓝牙模块\ECB02客户资料\4.硬件参考资料\ECB02硬件参考设计\ECB02蓝牙模块原理图库.SchLib
+File type: (3,3) Protel for Windows - Schematic Library Editor Binary File Version 5.0
+Output path: D:\浏览器下载文件\安装包\27-蓝牙模块\ECB02客户资料\4.硬件参考资料\ECB02硬件参考设计\ECB02蓝牙模块原理图库
+[W] Renamed illegal symbol name: 'ECB02H1' to 'ECB02H1'
+[W] Renamed illegal symbol name: 'ECB02H2' to 'ECB02H2'
+[W] Renamed illegal symbol name: 'ECB01' to 'ECB01'
+[W] Renamed illegal symbol name: 'R' to 'R'
+[W] Renamed illegal symbol name: 'LED-0402' to 'LED-0402'
+[W] Renamed illegal symbol name: 'CON5' to 'CON5'
+[W] Renamed illegal symbol name: 'CON6' to 'CON6'
+[W] Renamed illegal symbol name: 'CON7' to 'CON7'
+[W] Renamed illegal symbol name: 'CON8' to 'CON8'
+[W] Renamed illegal symbol name: 'C' to 'C'
+[W] Renamed illegal symbol name: 'ECB02S1' to 'ECB02S1'
+[W] Renamed illegal symbol name: 'ECB02S2' to 'ECB02S2'
+[W] Renamed illegal symbol name: 'ECB02S3' to 'ECB02S3'
+[W] Renamed illegal symbol name: 'ANT' to 'ANT'
+[W] Renamed illegal PCB Decal name: '0402-led' to '0402-LED'
+[W] Skipped existing symbol: ECB02H1
+[W] Skipped existing symbol: ECB02H2
+[W] Skipped existing symbol: ECB01
+[W] Skipped existing symbol: R
+[W] Skipped existing symbol: LED-0402
+[W] Skipped existing symbol: CON5
+[W] Skipped existing symbol: CON6
+[W] Skipped existing symbol: CON7
+[W] Skipped existing symbol: CON8
+[W] Skipped existing symbol: PIN75
+[W] Skipped existing symbol: PIN50
+[W] Skipped existing symbol: C
+[W] Skipped existing symbol: ECB02S1
+[W] Skipped existing symbol: PIN150
+[W] Skipped existing symbol: ECB02S2
+[W] Skipped existing symbol: ECB02S3
+[W] Skipped existing symbol: ANT
+[W] Skipped existing Part Type: LED-0402
+[W] Skipped existing Part Type: ECB02S3
+[W] Skipped existing Part Type: ECB02S2
+[W] Skipped existing Part Type: ECB02S1
+[W] Skipped existing Part Type: ECB02H2
+[W] Skipped existing Part Type: ECB02H1
+[W] Skipped existing Part Type: ECB01
+[W] Skipped existing Part Type: CON8
+[W] Skipped existing Part Type: CON7
+[W] Skipped existing Part Type: CON6
+[W] Skipped existing Part Type: CON5
+[W] Skipped existing Part Type: ANT
+[W] Skipped existing Part Type: R
+[W] Skipped existing Part Type: C
+[O] Created 0 symbol(s) and 0 schematic sheet(s)
+0 error(s) and 46 warning(s) found
+Finished on 2021/12/19 at 17:00:16.
+--------------------------------------------------------------------------------
+总计:46 条警告，0 个错误
