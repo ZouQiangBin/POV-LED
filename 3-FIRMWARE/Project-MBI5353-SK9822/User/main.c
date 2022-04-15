@@ -14,7 +14,7 @@
 #include "SK9822.h"
 
 
-#define RUpdateFrq 	2000				//== 球形LED刷新频率 Hz
+#define RUpdateFrq 	2000				//== 球形LED刷新频率 Hz SK9822刷新一次只要42us
 #define BLE_BAUD		115200
 
 TYPE_LED_LED LED = {0};
@@ -60,7 +60,7 @@ int main(void)
 		Menu.Rgb.R = 100;
 		Menu.Rgb.G = 100;
 		Menu.Rgb.B = 100;
-		
+
     while(1)
     {
 				if((int16)(TIM2->CNT - TimeBase) >= 8000)
@@ -81,7 +81,7 @@ int main(void)
 								MusicRun(&Music);
 						}
 						
-						if((TimeCnt & 0xFF) == 0xFF)	  //== 128ms
+						if((TimeCnt & 0xFF) == 0xFF)	  //== 128*8ms
 						{
 								Uint8 Index[60];
 								
@@ -143,15 +143,23 @@ void TIM2_IRQHandler(void)
 				OvCnt++;	
 		}
 		
-		//=== 2、捕获中断(下降沿)
+		//=== 2、捕获中断(下降沿) 因硬件设计 转速到了1500rpm后就会抓不到Z信号
 		if(TIM_GetITStatus(TIM2, TIM_IT_CC1)) 
 		{
 				TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
 				
 				Uint16 CCR1 = TIM_GetCapture1(TIM2);
-				
+
 				//== 1、记录转一圈的时间，单位：us
 				LED.SpeedPrd = (OvCnt << 16) + CCR1;
+				OvCnt = 0;
+				TIM_Cmd(TIM2, DISABLE);
+				TIM2->CNT = 0;					//== T法测速要重新计时
+				TIM_Cmd(TIM2, ENABLE);
+				
+				TIM_Cmd(TIM4, DISABLE);	//== 本处清零定时器4，抖动问题会改善很多，但还是有随机抖动现象
+				TIM4->CNT = 0;					//== 转速不稳定+光电不合适，在现有的硬件和机械条件下暂时没有更好的办法优化
+				TIM_Cmd(TIM4, ENABLE);
 				
 				//== 2、初始化屏幕边界、带滚动显示
 				LED.LAxisCntY = 0;
@@ -181,10 +189,8 @@ void TIM2_IRQHandler(void)
 				
 				//== 3、加载界面
 				Menu.Init = 1;
-				if(Menu.Init && Menu.Layer == 0)	DispInit();
-				
-				OvCnt = 0;
-				TIM2->CNT = 0;
+				if(Menu.Init && Menu.Layer == 0)	DispInit();	
+
 		}
 }
 
@@ -201,17 +207,22 @@ void TIM4_IRQHandler(void)
 		{
 				int16 T0 = TIM2->CNT;
 				
+				Menu.Flag.bit.UpdataSts = 1;
+				
 				TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
 		
 				//=== 1、分频处理
 				if(++LED.RFrqDivCnt >= LED.RFrqDiv) 	LED.RFrqDivCnt = 0;				
 				else 																	return;
+				if(Menu.Flag.bit.UpdataSts == 0)			return;
 				
 				//=== 2、显示更新
 				DispUpdate();
 				
 				//=== 3、时间测量
 				LED.RunTime = ((int16)TIM2->CNT - (int16)T0);
+				
+				Menu.Flag.bit.UpdataSts = 0;
 		}
 		
 }

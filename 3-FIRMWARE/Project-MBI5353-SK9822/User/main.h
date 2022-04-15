@@ -36,7 +36,7 @@
 #define RLED_IRQ1	1	
 
 #define USART2_IRQ0 2
-#define USART2_IRQ1 1
+#define USART2_IRQ1 2
 
 typedef int64_t 	int64;
 typedef int32_t 	int32;

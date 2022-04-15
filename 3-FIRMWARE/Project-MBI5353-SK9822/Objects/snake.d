@@ -8,7 +8,7 @@
 .\objects\snake.o: D:\Application\Keil514\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h
 .\objects\snake.o: D:\Application\Keil514\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h
 .\objects\snake.o: D:\Application\Keil514\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include\system_stm32f10x.h
-.\objects\snake.o: D:\BaiduNetdiskDownload\99-MY PJT\1-POV LED\3-FIRMWARE\Project-MBI5353-SK9822\RTE\Device\STM32F103C8\stm32f10x_conf.h
+.\objects\snake.o: D:\GitHubWorkSpace\POV-LED\3-FIRMWARE\Project-MBI5353-SK9822\RTE\Device\STM32F103C8\stm32f10x_conf.h
 .\objects\snake.o: D:\Application\Keil514\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\StdPeriph_Driver\inc\stm32f10x_adc.h
 .\objects\snake.o: D:\Application\Keil514\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\Include\stm32f10x.h
 .\objects\snake.o: D:\Application\Keil514\ARM\PACK\Keil\STM32F1xx_DFP\2.0.0\Device\StdPeriph_Driver\inc\stm32f10x_dma.h

@@ -18,7 +18,8 @@ typedef struct
 		Uint32		SnakeRunDirOld:3;		//== 贪吃蛇运动停止前的运动方向
 		
 		Uint32		BleErr:1;
-		Uint32		rsvd:20;
+		Uint32		UpdataSts:1;				//== LED刷新状态：1-正在刷新
+		Uint32		rsvd:19;
 }MENU_BITS;
 typedef union
 {
@@ -45,7 +46,7 @@ typedef struct
 		Uint8			SnakeRunDiv;			//== 游戏难度
 		
 		Uint8			Init;
-		
+
 	MENU_WORD		Flag;
 		
 }TYPE_MENU;

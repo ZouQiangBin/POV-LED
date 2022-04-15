@@ -58,11 +58,9 @@ void SPI1_Init(void)
 		SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;																	//== 时钟空闲低电平
 		SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;	
 #endif
-		
-		
-																	//== 数据捕获于第一个时钟沿
+
 		SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;																		//== 软件管理片选
-		SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;					//== 通信速率 18M
+		SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;					//== 通信速率 18M
 		SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;													//== 高位先传
 		SPI_InitStructure.SPI_CRCPolynomial = 7;																		//== CRC7
 		SPI_Init(SPI1, &SPI_InitStructure);  																				//== 根据SPI_InitStruct中指定的参数初始化外设SPIx寄存器																																		 

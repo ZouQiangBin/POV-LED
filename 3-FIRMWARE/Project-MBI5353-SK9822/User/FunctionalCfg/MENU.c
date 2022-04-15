@@ -125,7 +125,20 @@ void DispPic(void)
 		
 		if(Menu.CurSel == 0)			p = &Pic1[0][0];
 		else if(Menu.CurSel == 1)	p = &Pic2[0][0];
-		else											p = &Pic3[0][0];
+		else if(Menu.CurSel == 2)	p = &Pic3[0][0];
+		else
+		{
+				for(Uint8 i = 0; i < RMAXX; i++)
+				{
+						for(Uint8 j = 0; j < RMAXY; j++)
+						{
+								LED.RBuf[i][j].R = Menu.Rgb.R >> Menu.PicShiftBits;
+								LED.RBuf[i][j].G = Menu.Rgb.G >> Menu.PicShiftBits;
+								LED.RBuf[i][j].B = Menu.Rgb.B >> Menu.PicShiftBits;
+						}
+				}
+				return;
+		}
 		
 		for(Uint8 i = 0; i < RMAXX; i++)
 		{
@@ -315,11 +328,11 @@ void Layer3(void)
 		//=== 1¡¢¼üÅÌ²Ù×÷
 		if(Menu.KeySts == UP || Menu.KeySts == LEFT)	
 		{
-				Menu.CurSel = (Menu.CurSel == 2) ? 0 : Menu.CurSel+1;					
+				Menu.CurSel = (Menu.CurSel == 3) ? 0 : Menu.CurSel+1;					
 		}
 		else if(Menu.KeySts == DOWN || Menu.KeySts == RIGHT)	
 		{
-				Menu.CurSel = (Menu.CurSel == 0) ? 2 : Menu.CurSel-1;	
+				Menu.CurSel = (Menu.CurSel == 0) ? 3 : Menu.CurSel-1;	
 		}
 		else if(Menu.KeySts == OK || Menu.KeySts == STOP)	
 		{
